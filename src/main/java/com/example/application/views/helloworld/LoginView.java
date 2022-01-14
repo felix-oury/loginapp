@@ -1,10 +1,12 @@
-// edit in order to upload 2
+// edit in order to upload 3
 package com.example.application.views.helloworld;
 
 
 import com.example.application.views.MainLayout;
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.PasswordField;
@@ -39,10 +41,20 @@ public class LoginView extends HorizontalLayout {
             }
         });
 
+        //setSizeFull();
+        setAlignItems(Alignment.CENTER);
+        setJustifyContentMode(JustifyContentMode.CENTER);
+
+
+
         setMargin(true);
-        setVerticalComponentAlignment(Alignment.END, username,password, Login);
-
-        add(username,password, Login);
+        //setVerticalComponentAlignment(Alignment.END, username,password, Login);
+        add(createFormLayout());
+        //add(username,password, Login);
     }
-
+    private Component createFormLayout() {
+        FormLayout formLayout = new FormLayout();
+        formLayout.add(username, password, Login);
+        return formLayout;
+    }
 }
